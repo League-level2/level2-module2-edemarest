@@ -6,7 +6,13 @@
 class Segment {
 
 //Add x and y member variables. They will hold the corner location of each segment of the snake.
-
+  int x;
+  int y;
+  
+  public Segment(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
 
 // Add a constructor with parameters to initialize each variable.
 
@@ -19,6 +25,11 @@ class Segment {
 // ***** GAME VARIABLES *****
 // All the game variables that will be shared by the game methods are here
 //*
+   int foodX;
+   int foodY;
+   int direction = UP;
+   int piecesEaten;
+   Segment head;
 
 
 
@@ -30,12 +41,16 @@ class Segment {
 //*
 
 void setup() {
-
+  size(500, 500);
+  Segment head = new Segment(400, 400);
+  frameRate(20);
+  dropFood();
 }
 
 void dropFood() {
   //Set the food in a new random location
-    
+    foodX = ((int)random(50)*10);
+    foodY = ((int)random(50)*10);
 }
 
 
@@ -46,16 +61,21 @@ void dropFood() {
 //*
 
 void draw() {
-  
+  background(#65E398);
+  drawFood();
+  drawSnake();
 }
 
 void drawFood() {
   //Draw the food
-  
+  fill(#985812);
+  rect(foodX, foodY, 10, 10);
 }
 
 void drawSnake() {
   //Draw the head of the snake followed by its tail
+  fill(#00673D);
+  rect(x, y, 20, 20);
 }
 
 
@@ -95,26 +115,31 @@ void keyPressed() {
 void move() {
   //Change the location of the Snake head based on the direction it is moving.
   
-    /*
+    
+    
   switch(direction) {
   case UP:
+    direction = UP;
     // move head up here 
     break;
   case DOWN:
+  direction = DOWN;
     // move head down here 
     break;
   case LEFT:
+  direction = LEFT;
    // figure it out 
     break;
   case RIGHT:
+  direction = RIGHT;
     // mystery code goes here 
     break;
   }
-  */
 }
 
 void checkBoundaries() {
  //If the snake leaves the frame, make it reappear on the other side
+ if(x = 
  
 }
 
